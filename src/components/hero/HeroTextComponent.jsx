@@ -12,7 +12,7 @@ const HeroTextComponent = () => {
                 ETF‑Matching analysiert hunderte ETFs und stellt die perfekte, maßgeschneiderte Auswahl für dich
                 zusammen.
             </p>
-            <div className={"flex items-center justify-center gap-8"}>
+            <div className={"flex items-center justify-center gap-4 flex-col md:gap-8 md:flex-row"}>
                 <HeroFeatureComponent text={"Risikoeinschätzung"} icon={<ShieldCheckIcon className={"size-4 stroke-2 text-amber-600"}/>} pillClassName={"bg-amber-200"} textClassName={"text-amber-600"}/>
                 <HeroFeatureComponent text={"Sektor-Filter"} icon={<GlobeEuropeAfricaIcon className={"size-4 stroke-2 text-sky-600"}/>} pillClassName={"bg-sky-200"} textClassName={"text-sky-600"}/>
                 <HeroFeatureComponent text={"Langfristige Gewinne"} icon={<ShieldCheckIcon className={"size-4 stroke-2 text-fuchsia-600"}/>} pillClassName={"bg-fuchsia-200"} textClassName={"text-fuchsia-600"}/>
