@@ -8,8 +8,8 @@ const HeroTextComponent = () => {
             <p className={"text-4xl md:text-5xl max-w-[600px] text-center font-semibold bg-clip-text text-transparent bg-gradient-to-r from-light-green to-pastel-blue"}>Finde
                 ETFs - individuell nach Deinen Bedürfnissen</p>
             <p className={"text-text-secondary max-w-[700px] text-center"}>
-                Finde ETFs, die zu deinem Lifestyle und deiner Risikobereitschaft passen. Unser intelligentes
-                ETF‑Matching analysiert hunderte ETFs und stellt die perfekte, maßgeschneiderte Auswahl für dich
+                Finde ETFs, die zu Deinem Lifestyle und deiner Risikobereitschaft passen. Unser intelligentes
+                ETF‑Matching analysiert hunderte ETFs und stellt die perfekte, maßgeschneiderte Auswahl für Dich
                 zusammen.
             </p>
             <div className={"flex items-center justify-center gap-4 flex-col md:gap-8 md:flex-row"}>
