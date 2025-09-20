@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import SectorPreferenceSliderComponent from "@/components/matcher/sector/SectorPreferenceSliderComponent.jsx";
+import SectorPreferenceWeightComponent from "@/components/matcher/sector/SectorPreferenceWeightComponent.jsx";
 
 const SectorPreferenceComponent = ({icon, headline, color, onWeightChange}) => {
     const [weight, setWeight] = useState(0)
@@ -11,7 +11,8 @@ const SectorPreferenceComponent = ({icon, headline, color, onWeightChange}) => {
                     {icon}
                     <p className={`font-semibold ${weight > 0 && color.text}`}>{headline}</p>
                 </div>
-                <div className={`flex items-center justify-center rounded-full ${weight > 0 && color.text} ${weight > 0 ? color.bg : "bg-gray-300"} py-1 px-3 text-sm`}>
+                <div
+                    className={`flex items-center justify-center rounded-full ${weight > 0 && color.text} ${weight > 0 ? color.bg : "bg-gray-300"} py-1 px-3 text-sm`}>
                     {weight} %
                 </div>
             </div>
@@ -21,10 +22,13 @@ const SectorPreferenceComponent = ({icon, headline, color, onWeightChange}) => {
                 <p>50%</p>
             </div>
             <div className={"flex items-center justify-center w-full"}>
-                <SectorPreferenceSliderComponent onWeightChange={(weight) => {
-                    setWeight(weight)
-                    onWeightChange(weight)
-                }}/>
+                <SectorPreferenceWeightComponent
+                    onWeightChange={(weight) => {
+                        setWeight(weight)
+                        onWeightChange(weight)
+                    }}
+                    color={color}
+                />
             </div>
         </div>
     );
