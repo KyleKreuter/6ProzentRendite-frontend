@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import * as Slider from "@radix-ui/react-slider";
+import SectorPreferenceWeightShortcutComponent
+    from "@/components/matcher/sector/SectorPreferenceWeightShortcutComponent.jsx";
 
 const SectorPreferenceWeightComponent = ({onWeightChange, color}) => {
     const [preferenceWeight, setPreferenceWeight] = useState(0)
@@ -24,51 +26,26 @@ const SectorPreferenceWeightComponent = ({onWeightChange, color}) => {
                     className="block h-4 w-4 rounded-full bg-pastel-blue focus:outline-none hover:cursor-pointer"/>
             </Slider.Root>
             <div className={"flex items-center justify-center w-full text-sm gap-4"}>
-                <div
-                    className={`flex items-center justify-center rounded-full px-2 py-1 text-sm ${preferenceWeight === 5 ? color.text : "text-gray-600"} ${preferenceWeight === 5 ? color.bg : "bg-gray-300"} hover:cursor-pointer`}
-                    onClick={() => {
-                        setPreferenceWeight(5)
-                        onWeightChange(5)
-                    }}
-                >
-                    5%
-                </div>
-                <div
-                    className={`flex items-center justify-center rounded-full px-2 py-1 text-sm ${preferenceWeight === 10 ? color.text : "text-gray-600"} ${preferenceWeight === 10 ? color.bg : "bg-gray-300"} hover:cursor-pointer`}
-                    onClick={() => {
-                        setPreferenceWeight(10)
-                        onWeightChange(10)
-                    }}
-                >
-                    10%
-                </div>
-                <div
-                    className={`flex items-center justify-center rounded-full px-2 py-1 text-sm ${preferenceWeight === 15 ? color.text : "text-gray-600"} ${preferenceWeight === 15 ? color.bg : "bg-gray-300"} hover:cursor-pointer`}
-                    onClick={() => {
-                        setPreferenceWeight(15)
-                        onWeightChange(15)
-                    }}
-                >
-                    15%
-                </div>
-                <div
-                    className={`flex items-center justify-center rounded-full px-2 py-1 text-sm ${preferenceWeight === 25 ? color.text : "text-gray-600"} ${preferenceWeight === 25 ? color.bg : "bg-gray-300"} hover:cursor-pointer`}
-                    onClick={() => {
-                        setPreferenceWeight(25)
-                        onWeightChange(25)
-                    }}
-                >
-                    25%
-                </div>
-                <div
-                    className={`flex items-center justify-center rounded-full px-2 py-1 text-sm ${preferenceWeight === 30 ? color.text : "text-gray-600"} ${preferenceWeight === 30 ? color.bg : "bg-gray-300"} hover:cursor-pointer`}
-                    onClick={() => {
-                        setPreferenceWeight(30)
-                        onWeightChange(30)
-                    }}
-                >
-                    30%
-                </div>
+                <SectorPreferenceWeightShortcutComponent color={color} weight={5} active={preferenceWeight === 5} onWeightChange={()=> {
+                    setPreferenceWeight(5)
+                    onWeightChange(5)
+                }} />
+                <SectorPreferenceWeightShortcutComponent color={color} weight={10} active={preferenceWeight === 10} onWeightChange={()=> {
+                    setPreferenceWeight(10)
+                    onWeightChange(10)
+                }} />
+                <SectorPreferenceWeightShortcutComponent color={color} weight={20} active={preferenceWeight === 20} onWeightChange={()=> {
+                    setPreferenceWeight(20)
+                    onWeightChange(20)
+                }} />
+                <SectorPreferenceWeightShortcutComponent color={color} weight={25} active={preferenceWeight === 25} onWeightChange={()=> {
+                    setPreferenceWeight(25)
+                    onWeightChange(25)
+                }} />
+                <SectorPreferenceWeightShortcutComponent color={color} weight={30} active={preferenceWeight === 30} onWeightChange={()=> {
+                    setPreferenceWeight(30)
+                    onWeightChange(30)
+                }} />
             </div>
         </div>
     );
