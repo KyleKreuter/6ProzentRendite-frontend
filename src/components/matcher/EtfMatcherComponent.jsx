@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import RiskLevelComponent from "@/components/matcher/risk/RiskLevelComponent.jsx";
 import SectorPreferenceComponent from "@/components/matcher/sector/SectorPreferenceComponent.jsx";
-import {CpuChipIcon} from "@heroicons/react/24/solid/index.js";
+import {CpuChipIcon, HeartIcon} from "@heroicons/react/24/solid/index.js";
 
 const EtfMatcherComponent = () => {
     const [riskValue, setRiskValue] = useState("LOW")
@@ -23,6 +23,22 @@ const EtfMatcherComponent = () => {
                         </div>}
                     headline={"Technologie"}
                     color={{bg: "bg-sky-200", text: "text-sky-600"}}
+                />
+                <SectorPreferenceComponent
+                    icon={
+                        <div className={"w-10 h-10 bg-green-200 rounded-md flex items-center justify-center text-green-600"}>
+                            <HeartIcon className={"size-8"}/>
+                        </div>}
+                    headline={"Gesundheit"}
+                    color={{bg: "bg-green-200", text: "text-green-600"}}
+                />
+                <SectorPreferenceComponent
+                    icon={
+                        <div className={"w-10 h-10 bg-amber-200 rounded-md flex items-center justify-center text-amber-600"}>
+                            <CpuChipIcon className={"size-8"}/>
+                        </div>}
+                    headline={"Finanzen"}
+                    color={{bg: "bg-amber-200", text: "text-amber-600"}}
                 />
             </div>
         </div>
