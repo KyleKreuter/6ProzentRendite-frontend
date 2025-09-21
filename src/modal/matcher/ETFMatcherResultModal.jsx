@@ -9,43 +9,18 @@ const ETFMatcherResultModal = ({onExit}) => {
                       onExit={() => onExit && onExit()}>
             <div className={"flex gap-4 flex-col"}>
                 <ETFCard etf={{
-                     fundSymbol : "AAAA",
-                     fundShortName: "Short Name AAAA Fund",
-                     fundCategory : "Base",
-                     totalNetAssets : 163,
-                     risk : "LOW",
-                     size : "High Volume",
-                     returnYTD : -1.2,
-                     _52wLow : 54.21,
-                     _52wHigh : 79.21,
-                     costsPerYear : 1.14,
-                     matchToFoci : 0.98
-                }}/>
-                <ETFCard etf={{
-                    fundSymbol : "FTSC",
+                    fundSymbol: "AAAA",
                     fundShortName: "Short Name AAAA Fund",
-                    fundCategory : "Base",
-                    totalNetAssets : 12,
-                    risk : "MEDIUM",
-                    size : "Large",
-                    returnYTD : 1.12,
-                    _52wLow : 54.21,
-                    _52wHigh : 79.21,
-                    costsPerYear : 0.12,
-                    matchToFoci : 0.98
-                }}/>
-                <ETFCard etf={{
-                    fundSymbol : "MKAK",
-                    fundShortName: "Short Name AAAA Fund",
-                    fundCategory : "Base",
-                    totalNetAssets : 3567,
-                    risk : "HIGH_AVE",
-                    size : "Small",
-                    returnYTD : 24.75,
-                    _52wLow : 54.21,
-                    _52wHigh : 79.21,
-                    costsPerYear : 0.01,
-                    matchToFoci : 0.98
+                    fundCategory: "Base",
+                    totalNetAssets: 163,
+                    risk: "LOW",
+                    size: "High Volume",
+                    returnYTD: -1.2,
+                    _52wLow: 54.21,
+                    _52wHigh: 79.21,
+                    _50dAve: 78.04,
+                    costsPerYear: 1.14,
+                    matchToFoci: 0.98
                 }}/>
             </div>
         </DefaultModal>
