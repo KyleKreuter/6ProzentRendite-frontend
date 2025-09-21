@@ -1,7 +1,6 @@
 import React from 'react';
 import {ShieldCheckIcon} from "@heroicons/react/24/outline/index.js";
-import {BuildingOffice2Icon, ChartBarIcon} from "@heroicons/react/24/solid/index.js";
-import * as Slider from "@radix-ui/react-slider";
+import {BuildingOffice2Icon, ChartBarIcon, SparklesIcon} from "@heroicons/react/24/solid/index.js";
 
 const RISK_COLORS = {
     "LOW": {
@@ -38,8 +37,8 @@ const ETFCard = ({etf}) => {
 
     return (
         <div
-            className={"w-full rounded-lg border-pastel-blue border-2 flex items-center justify-center flex-col gap-4"}>
-            <div className={"bg-pastel-cyan/20 flex flex-col p-4 w-full gap-2"}>
+            className={"w-full rounded-lg border-gray-300 border-2 flex items-center justify-center flex-col gap-4"}>
+            <div className={"bg-sky-300/10 flex flex-col p-4 w-full gap-2"}>
                 <div className={"flex items-center justify-between w-full"}>
                     <div className={"flex items-center justify-center gap-2"}>
                         <div className={"rounded-lg border bg-white border-pastel-cyan px-2 py-1 text-xs"}>
@@ -85,11 +84,11 @@ const ETFCard = ({etf}) => {
                         <div className="relative h-2 rounded-full bg-white">
                             <div
                                 className={"absolute left-0 top-0 h-2 rounded-full bg-gradient-to-r from-pastel-cyan to-pastel-blue"}
-                                style={{ width: `${percentage}%` }}
+                                style={{width: `${percentage}%`}}
                             />
                             <div
-                                className="absolute top-1/2 w-3 h-3 -translate-y-1/2 translate-x-1/2 rounded-full border-2 border-blue-500 bg-white"
-                                style={{ left: `${percentage-2}%` }}
+                                className="absolute top-1/2 w-3 h-3 -translate-y-1/2 -translate-x-3 rounded-full border-2 border-blue-500 bg-white"
+                                style={{left: `${percentage}%`}}
                             />
                         </div>
 
@@ -109,6 +108,13 @@ const ETFCard = ({etf}) => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={"flex items-center justify-between w-full p-4"}>
+                <div className={"flex items-center justify-center gap-1"}>
+                    <SparklesIcon className={"size-4 text-pastel-blue"}/>
+                    <p className={"text-sm font-semibold"}>Match-Wert</p>
+                </div>
+                <p className={"text-pastel-blue font-semibold"}>{etf.matchToFoci}%</p>
             </div>
         </div>
     );
