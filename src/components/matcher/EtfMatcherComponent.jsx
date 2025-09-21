@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import RiskLevelComponent from "@/components/matcher/risk/RiskLevelComponent.jsx";
 import SectorPreferenceComponent from "@/components/matcher/sector/SectorPreferenceComponent.jsx";
 import {CpuChipIcon, CurrencyDollarIcon, HeartIcon, LightBulbIcon} from "@heroicons/react/24/solid/index.js";
+import Modal from "@/modal/Modal.jsx";
+import ETFMatcherResultModal from "@/modal/matcher/ETFMatcherResultModal.jsx";
 
 const EtfMatcherComponent = () => {
     const [riskValue, setRiskValue] = useState("MEDIUM")
     const [sectors, setSectors] = useState([])
+    const [etfMatcherResultModalOpen, setEtfMatcherResultModalOpen] = useState(false)
 
     return (
         <div className={"w-full h-full px-4 py-4 bg-pastel-cyan/10 flex items-center justify-center"}>
@@ -23,11 +26,11 @@ const EtfMatcherComponent = () => {
                     <SectorPreferenceComponent
                         icon={
                             <div
-                                className={"w-10 h-10 bg-sky-200 rounded-md flex items-center justify-center text-sky-600"}>
+                                className={"w-10 h-10 bg-lime-200 rounded-md flex items-center justify-center text-lime-600"}>
                                 <CpuChipIcon className={"size-8"}/>
                             </div>}
                         headline={"Technologie"}
-                        color={{bg: "bg-sky-200", text: "text-sky-600"}}
+                        color={{bg: "bg-lime-200", text: "text-lime-600"}}
                         onWeightChange={(weight) => {
                             setSectors([...sectors, {
                                 "TECHNOLOGY": weight
@@ -77,10 +80,14 @@ const EtfMatcherComponent = () => {
                         }}
                     />
                 </div>
-                <div className={"w-full p-4 flex items-center justify-center border border-pastel-blue rounded-lg hover:cursor-pointer hover:border-pastel-cyan transform transition-all duration-200"}>
-                    <button>Passende ETFs anzeigen</button>
-                </div>
+                <button
+                    className={"w-full p-4 flex items-center justify-center border border-pastel-blue rounded-lg hover:cursor-pointer hover:border-pastel-cyan transform transition-all duration-200"}
+                    onClick={() => setEtfMatcherResultModalOpen(true)}>Passende ETFs anzeigen
+                </button>
             </div>
+            <Modal isOpen={etfMatcherResultModalOpen} onClickOutside={() => setEtfMatcherResultModalOpen(false)}>
+                <ETFMatcherResultModal onExit={() => setEtfMatcherResultModalOpen(false)}/>
+            </Modal>
         </div>
     );
 };
