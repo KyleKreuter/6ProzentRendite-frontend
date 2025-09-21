@@ -11,30 +11,30 @@ const ETFMatcherResultModal = ({onExit}) => {
                 <ETFCard etf={{
                     fundSymbol: "AAAA",
                     fundShortName: "Short Name AAAA Fund",
-                    fundCategory: "Base",
+                    fundCategory: "Technology",
                     totalNetAssets: 163,
-                    risk: "LOW",
-                    size: "High Volume",
-                    returnYTD: -1.2,
+                    risk: "HIGH",
+                    size: "Low Volume",
+                    returnYTD: 8.8,
                     _52wLow: 178.21,
                     _52wHigh: 352.21,
                     _50dAve: 250.04,
                     costsPerYear: 1.14,
                     matchToFoci: 98
-                }}/>                <ETFCard etf={{
-                    fundSymbol: "AAAA",
-                    fundShortName: "Short Name AAAA Fund",
-                    fundCategory: "Base",
-                    totalNetAssets: 163,
-                    risk: "LOW",
-                    size: "High Volume",
-                    returnYTD: -1.2,
-                    _52wLow: 54.21,
-                    _52wHigh: 79.21,
-                    _50dAve: 78.04,
-                    costsPerYear: 1.14,
-                    matchToFoci: 98
-                }}/>
+                }}/> <ETFCard etf={{
+                fundSymbol: "DASK",
+                fundShortName: "Short Name SAK Fund",
+                fundCategory: "Base",
+                totalNetAssets: 22,
+                risk: "MEDIUM",
+                size: "High Volume",
+                returnYTD: 1.2,
+                _52wLow: 54.21,
+                _52wHigh: 79.21,
+                _50dAve: 78.04,
+                costsPerYear: 0.20,
+                matchToFoci: 87
+            }}/>
             </div>
         </DefaultModal>
     );
