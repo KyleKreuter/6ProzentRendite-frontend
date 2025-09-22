@@ -7,7 +7,7 @@ import ETFMatcherResultModal from "@/modal/matcher/ETFMatcherResultModal.jsx";
 
 const EtfMatcherComponent = () => {
     const [riskValue, setRiskValue] = useState("MEDIUM")
-    const [sectors, setSectors] = useState([])
+    const [sectors, setSectors] = useState({})
     const [etfMatcherResultModalOpen, setEtfMatcherResultModalOpen] = useState(false)
 
     return (
@@ -32,9 +32,7 @@ const EtfMatcherComponent = () => {
                         headline={"Technologie"}
                         color={{bg: "bg-lime-200", text: "text-lime-600"}}
                         onWeightChange={(weight) => {
-                            setSectors([...sectors, {
-                                "TECHNOLOGY": weight
-                            }])
+                            setSectors((prev) => ({ ...prev, TECHNOLOGY: weight }));
                         }}
                     />
                     <SectorPreferenceComponent
@@ -46,9 +44,7 @@ const EtfMatcherComponent = () => {
                         headline={"Gesundheit"}
                         color={{bg: "bg-green-200", text: "text-green-600"}}
                         onWeightChange={(weight) => {
-                            setSectors([...sectors, {
-                                "HEALTHCARE": weight
-                            }])
+                            setSectors((prev) => ({ ...prev, HEALTHCARE: weight }));
                         }}
                     />
                     <SectorPreferenceComponent
@@ -60,9 +56,7 @@ const EtfMatcherComponent = () => {
                         headline={"Energie"}
                         color={{bg: "bg-amber-200", text: "text-amber-600"}}
                         onWeightChange={(weight) => {
-                            setSectors([...sectors, {
-                                "FINANCIAL": weight
-                            }])
+                            setSectors((prev) => ({ ...prev, ENERGY: weight }));
                         }}
                     />
                     <SectorPreferenceComponent
@@ -74,9 +68,7 @@ const EtfMatcherComponent = () => {
                         headline={"Finanzen"}
                         color={{bg: "bg-fuchsia-200", text: "text-fuchsia-600"}}
                         onWeightChange={(weight) => {
-                            setSectors([...sectors, {
-                                "FINANCIAL": weight
-                            }])
+                            setSectors((prev) => ({ ...prev, FINANCIAL: weight }));
                         }}
                     />
                 </div>
@@ -86,7 +78,7 @@ const EtfMatcherComponent = () => {
                 </button>
             </div>
             <Modal isOpen={etfMatcherResultModalOpen} onClickOutside={() => setEtfMatcherResultModalOpen(false)}>
-                <ETFMatcherResultModal onExit={() => setEtfMatcherResultModalOpen(false)}/>
+                <ETFMatcherResultModal onExit={() => setEtfMatcherResultModalOpen(false)} compositionRisk={riskValue} foci={sectors}/>
             </Modal>
         </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import DefaultModal from "@/modal/DefaultModal.jsx";
 import ETFCard from "@/modal/matcher/components/ETFCard.jsx";
+import {useETFs} from "@/hooks/useETFs.js";
 
 const DEMO_ETFs = [
     {
@@ -75,14 +76,15 @@ const DEMO_ETFs = [
     }
 ]
 
-const ETFMatcherResultModal = ({onExit}) => {
+const ETFMatcherResultModal = ({onExit, foci, compositionRisk}) => {
+    const {data, isLoading} = useETFs(foci, compositionRisk);
     const pageSize = 2;
     const [page, setPage] = React.useState(0);
 
     const total = Math.min(DEMO_ETFs.length, 5);
     const pageCount = Math.max(1, Math.ceil(total / pageSize));
     const start = page * pageSize;
-    const visibleETFs = DEMO_ETFs.slice(start, start + pageSize);
+    const visibleETFs = data?.etfs.slice(start, start + pageSize);
 
     const canPrev = page > 0;
     const canNext = page < pageCount - 1;
@@ -99,11 +101,10 @@ const ETFMatcherResultModal = ({onExit}) => {
                       subtitle={"Basierend auf deiner angegebenen Präferenzen, ist hier eine Auswahl an passenden ETFs. Diese kannst du dir in deinem Profil speichern und mit weiteren Sektoren weiter individualisieren."}
                       onExit={() => onExit && onExit()}>
             <div className={"grid grid-cols-2 gap-4"}>
-                {visibleETFs.map((etf, idx) => (
-                    <ETFCard key={`${etf.fundSymbol}-${start + idx}`} etf={etf} />
+                {!isLoading && visibleETFs.map((etf, idx) => (
+                    <ETFCard key={`${etf.fundSymbol}-${start + idx}`} etf={etf}/>
                 ))}
             </div>
-            {/* Pagination Controls */}
             <div className="mt-6 flex items-center justify-between">
                 <button
                     type="button"
@@ -118,7 +119,7 @@ const ETFMatcherResultModal = ({onExit}) => {
                 </button>
 
                 <div className="flex items-center gap-2">
-                    {Array.from({ length: pageCount }).map((_, i) => (
+                    {Array.from({length: pageCount}).map((_, i) => (
                         <button
                             key={i}
                             type="button"
