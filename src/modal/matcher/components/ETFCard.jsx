@@ -83,10 +83,6 @@ const ETFCard = ({etf}) => {
                     <div className="w-full px-8">
                         <div className="relative h-2 rounded-full bg-white">
                             <div
-                                className={"absolute left-0 top-0 h-2 rounded-full bg-gradient-to-r from-pastel-cyan to-pastel-blue"}
-                                style={{width: `${percentage}%`}}
-                            />
-                            <div
                                 className="absolute top-1/2 w-3 h-3 -translate-y-1/2 -translate-x-3 rounded-full border-2 border-blue-500 bg-white"
                                 style={{left: `${percentage}%`}}
                             />
