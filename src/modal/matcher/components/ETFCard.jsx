@@ -59,7 +59,7 @@ const ETFCard = ({etf}) => {
                 <div className={"flex items-center justify-between w-full"}>
                     <div>
                         <p className={"font-semibold"}>{etf.fundShortName}</p>
-                        <p className={"text-sm"}>{etf.fundCategory}</p>
+                        <p className={"text-sm"}>{etf.fundCategory ? etf.fundCategory : "N/A"}</p>
                     </div>
                     <p className={"font-semibold text-sm"}>${etf.totalNetAssets}M</p>
                 </div>
