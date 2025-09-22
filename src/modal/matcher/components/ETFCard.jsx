@@ -42,7 +42,7 @@ const ETFCard = ({etf}) => {
                 <div className={"flex items-center justify-between w-full"}>
                     <div className={"flex items-center justify-center gap-2"}>
                         <div className={"rounded-lg border bg-white border-pastel-cyan px-2 py-1 text-xs"}>
-                            {etf.fundSymbol}
+                            {etf.fundSymbol ? etf.fundSymbol : "N/A"}
                         </div>
                         <div
                             className={`flex gap-1 items-center justify-center rounded-lg border bg-white border-pastel-cyan px-2 py-1 text-xs ${RISK_COLORS[etf.risk].bg} ${RISK_COLORS[etf.risk].text}`}>
@@ -53,12 +53,12 @@ const ETFCard = ({etf}) => {
                     <div
                         className={"rounded-lg border-pastel-cyan border px-2 py-1 text-xs flex items-center justify-center gap-1 text-fuchsia-600 bg-white"}>
                         <BuildingOffice2Icon className={"size-4 stroke-2"}/>
-                        <p>{etf.size}</p>
+                        <p>{etf.size ? etf.size : "N/A"}</p>
                     </div>
                 </div>
                 <div className={"flex items-center justify-between w-full"}>
                     <div>
-                        <p className={"font-semibold"}>{etf.fundShortName}</p>
+                        <p className={"font-semibold"}>{etf.fundShortName ? etf.fundShortName : "N/A"}</p>
                         <p className={"text-sm"}>{etf.fundCategory ? etf.fundCategory : "N/A"}</p>
                     </div>
                     <p className={"font-semibold text-sm"}>${etf.totalNetAssets}M</p>

@@ -3,85 +3,14 @@ import DefaultModal from "@/modal/DefaultModal.jsx";
 import ETFCard from "@/modal/matcher/components/ETFCard.jsx";
 import {useETFs} from "@/hooks/useETFs.js";
 
-const DEMO_ETFs = [
-    {
-        fundSymbol: "DASK",
-        fundShortName: "Short Name SAK Fund",
-        fundCategory: "Base",
-        totalNetAssets: 22,
-        risk: "MEDIUM",
-        size: "High Volume",
-        returnYTD: 1.2,
-        _52wLow: 54.21,
-        _52wHigh: 79.21,
-        _50dAve: 78.04,
-        costsPerYear: 0.20,
-        matchToFoci: 87
-    },
-    {
-        fundSymbol: "AAAA",
-        fundShortName: "Short Name AAAA Fund",
-        fundCategory: "Technology",
-        totalNetAssets: 163,
-        risk: "HIGH",
-        size: "Low Volume",
-        returnYTD: 8.8,
-        _52wLow: 178.21,
-        _52wHigh: 352.21,
-        _50dAve: 250.04,
-        costsPerYear: 1.14,
-        matchToFoci: 98
-    },
-    {
-        fundSymbol: "AAAA",
-        fundShortName: "Short Name AAAA Fund",
-        fundCategory: "Technology",
-        totalNetAssets: 163,
-        risk: "HIGH",
-        size: "Low Volume",
-        returnYTD: 8.8,
-        _52wLow: 178.21,
-        _52wHigh: 352.21,
-        _50dAve: 250.04,
-        costsPerYear: 1.14,
-        matchToFoci: 98
-    },
-    {
-        fundSymbol: "AAAA",
-        fundShortName: "Short Name AAAA Fund",
-        fundCategory: "Technology",
-        totalNetAssets: 163,
-        risk: "HIGH",
-        size: "Low Volume",
-        returnYTD: 8.8,
-        _52wLow: 178.21,
-        _52wHigh: 352.21,
-        _50dAve: 250.04,
-        costsPerYear: 1.14,
-        matchToFoci: 98
-    },
-    {
-        fundSymbol: "AAAA",
-        fundShortName: "Short Name AAAA Fund",
-        fundCategory: "Technology",
-        totalNetAssets: 163,
-        risk: "HIGH",
-        size: "Low Volume",
-        returnYTD: 8.8,
-        _52wLow: 178.21,
-        _52wHigh: 352.21,
-        _50dAve: 250.04,
-        costsPerYear: 1.14,
-        matchToFoci: 98
-    }
-]
+
 
 const ETFMatcherResultModal = ({onExit, foci, compositionRisk}) => {
     const {data, isLoading} = useETFs(foci, compositionRisk);
     const pageSize = 2;
     const [page, setPage] = React.useState(0);
 
-    const total = Math.min(DEMO_ETFs.length, 5);
+    const total = Math.min(data?.etfs.length, 6);
     const pageCount = Math.max(1, Math.ceil(total / pageSize));
     const start = page * pageSize;
     const visibleETFs = data?.etfs.slice(start, start + pageSize);
