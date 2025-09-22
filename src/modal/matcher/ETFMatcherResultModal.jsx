@@ -2,6 +2,8 @@ import React from 'react';
 import DefaultModal from "@/modal/DefaultModal.jsx";
 import ETFCard from "@/modal/matcher/components/ETFCard.jsx";
 import {useETFs} from "@/hooks/useETFs.js";
+import {ArrowLeftIcon} from "@heroicons/react/16/solid/index.js";
+import {ArrowRightIcon} from "@heroicons/react/16/solid/index.js";
 
 
 
@@ -44,7 +46,7 @@ const ETFMatcherResultModal = ({onExit, foci, compositionRisk}) => {
                             : "border-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                 >
-                    Zurück
+                    <ArrowLeftIcon className={"size-4"}/>
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -70,7 +72,7 @@ const ETFMatcherResultModal = ({onExit, foci, compositionRisk}) => {
                             : "border-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                 >
-                    Weiter
+                    <ArrowRightIcon className={"size-4"}/>
                 </button>
             </div>
 
