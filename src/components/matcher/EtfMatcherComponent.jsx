@@ -1,7 +1,19 @@
 import React, {useState} from 'react';
 import RiskLevelComponent from "@/components/matcher/risk/RiskLevelComponent.jsx";
 import SectorPreferenceComponent from "@/components/matcher/sector/SectorPreferenceComponent.jsx";
-import {CpuChipIcon, CurrencyDollarIcon, HeartIcon, LightBulbIcon} from "@heroicons/react/24/solid/index.js";
+import {
+    BoltIcon,
+    BuildingOfficeIcon,
+    CpuChipIcon,
+    CubeIcon,
+    CurrencyDollarIcon,
+    HeartIcon,
+    HomeIcon,
+    LightBulbIcon,
+    ShoppingBagIcon,
+    SignalIcon,
+    WrenchScrewdriverIcon
+} from "@heroicons/react/24/solid/index.js";
 import Modal from "@/modal/Modal.jsx";
 import ETFMatcherResultModal from "@/modal/matcher/ETFMatcherResultModal.jsx";
 
@@ -69,6 +81,90 @@ const EtfMatcherComponent = () => {
                         color={{bg: "bg-fuchsia-200", text: "text-fuchsia-600"}}
                         onWeightChange={(weight) => {
                             setSectors((prev) => ({ ...prev, FINANCIAL: weight }));
+                        }}
+                    />
+                    <SectorPreferenceComponent
+                        icon={
+                            <div
+                                className={"w-10 h-10 bg-pink-200 rounded-md flex items-center justify-center text-pink-600"}>
+                                <ShoppingBagIcon className={"size-8"}/>
+                            </div>}
+                        headline={"Konsumgüter"}
+                        color={{bg: "bg-pink-200", text: "text-pink-600"}}
+                        onWeightChange={(weight) => {
+                            setSectors((prev) => ({ ...prev, CONSUMER_DISCRETIONARY: weight }));
+                        }}
+                    />
+                    <SectorPreferenceComponent
+                        icon={
+                            <div
+                                className={"w-10 h-10 bg-indigo-200 rounded-md flex items-center justify-center text-indigo-600"}>
+                                <HomeIcon className={"size-8"}/>
+                            </div>}
+                        headline={"Basiskonsumgüter"}
+                        color={{bg: "bg-indigo-200", text: "text-indigo-600"}}
+                        onWeightChange={(weight) => {
+                            setSectors((prev) => ({ ...prev, CONSUMER_STAPLES: weight }));
+                        }}
+                    />
+                    <SectorPreferenceComponent
+                        icon={
+                            <div
+                                className={"w-10 h-10 bg-slate-200 rounded-md flex items-center justify-center text-slate-600"}>
+                                <WrenchScrewdriverIcon className={"size-8"}/>
+                            </div>}
+                        headline={"Industrie"}
+                        color={{bg: "bg-slate-200", text: "text-slate-600"}}
+                        onWeightChange={(weight) => {
+                            setSectors((prev) => ({ ...prev, INDUSTRIALS: weight }));
+                        }}
+                    />
+                    <SectorPreferenceComponent
+                        icon={
+                            <div
+                                className={"w-10 h-10 bg-orange-200 rounded-md flex items-center justify-center text-orange-600"}>
+                                <CubeIcon className={"size-8"}/>
+                            </div>}
+                        headline={"Rohstoffe"}
+                        color={{bg: "bg-orange-200", text: "text-orange-600"}}
+                        onWeightChange={(weight) => {
+                            setSectors((prev) => ({ ...prev, MATERIALS: weight }));
+                        }}
+                    />
+                    <SectorPreferenceComponent
+                        icon={
+                            <div
+                                className={"w-10 h-10 bg-sky-200 rounded-md flex items-center justify-center text-sky-600"}>
+                                <BuildingOfficeIcon className={"size-8"}/>
+                            </div>}
+                        headline={"Immobilien"}
+                        color={{bg: "bg-sky-200", text: "text-sky-600"}}
+                        onWeightChange={(weight) => {
+                            setSectors((prev) => ({ ...prev, REAL_ESTATE: weight }));
+                        }}
+                    />
+                    <SectorPreferenceComponent
+                        icon={
+                            <div
+                                className={"w-10 h-10 bg-yellow-200 rounded-md flex items-center justify-center text-yellow-600"}>
+                                <BoltIcon className={"size-8"}/>
+                            </div>}
+                        headline={"Versorgung"}
+                        color={{bg: "bg-yellow-200", text: "text-yellow-600"}}
+                        onWeightChange={(weight) => {
+                            setSectors((prev) => ({ ...prev, UTILITIES: weight }));
+                        }}
+                    />
+                    <SectorPreferenceComponent
+                        icon={
+                            <div
+                                className={"w-10 h-10 bg-purple-200 rounded-md flex items-center justify-center text-purple-600"}>
+                                <SignalIcon className={"size-8"}/>
+                            </div>}
+                        headline={"Kommunikation"}
+                        color={{bg: "bg-purple-200", text: "text-purple-600"}}
+                        onWeightChange={(weight) => {
+                            setSectors((prev) => ({ ...prev, COMMUNICATION: weight }));
                         }}
                     />
                 </div>
