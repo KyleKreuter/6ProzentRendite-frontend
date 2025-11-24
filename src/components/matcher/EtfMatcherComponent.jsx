@@ -89,10 +89,10 @@ const EtfMatcherComponent = () => {
                                 className={"w-10 h-10 bg-pink-200 rounded-md flex items-center justify-center text-pink-600"}>
                                 <ShoppingBagIcon className={"size-8"}/>
                             </div>}
-                        headline={"Konsumgüter"}
+                        headline={"Zyklische Konsumgüter"}
                         color={{bg: "bg-pink-200", text: "text-pink-600"}}
                         onWeightChange={(weight) => {
-                            setSectors((prev) => ({ ...prev, CONSUMER_DISCRETIONARY: weight }));
+                            setSectors((prev) => ({ ...prev, CONSUMER_CYCLICAL: weight }));
                         }}
                     />
                     <SectorPreferenceComponent
@@ -101,10 +101,10 @@ const EtfMatcherComponent = () => {
                                 className={"w-10 h-10 bg-indigo-200 rounded-md flex items-center justify-center text-indigo-600"}>
                                 <HomeIcon className={"size-8"}/>
                             </div>}
-                        headline={"Basiskonsumgüter"}
+                        headline={"Defensive Konsumgüter"}
                         color={{bg: "bg-indigo-200", text: "text-indigo-600"}}
                         onWeightChange={(weight) => {
-                            setSectors((prev) => ({ ...prev, CONSUMER_STAPLES: weight }));
+                            setSectors((prev) => ({ ...prev, CONSUMER_DEFENSIVE: weight }));
                         }}
                     />
                     <SectorPreferenceComponent
@@ -125,10 +125,10 @@ const EtfMatcherComponent = () => {
                                 className={"w-10 h-10 bg-orange-200 rounded-md flex items-center justify-center text-orange-600"}>
                                 <CubeIcon className={"size-8"}/>
                             </div>}
-                        headline={"Rohstoffe"}
+                        headline={"Basismaterialien"}
                         color={{bg: "bg-orange-200", text: "text-orange-600"}}
                         onWeightChange={(weight) => {
-                            setSectors((prev) => ({ ...prev, MATERIALS: weight }));
+                            setSectors((prev) => ({ ...prev, BASIC_MATERIALS: weight }));
                         }}
                     />
                     <SectorPreferenceComponent
