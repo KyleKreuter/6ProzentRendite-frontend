@@ -2,33 +2,59 @@ import React from 'react';
 import CompanyNameComponent from "@/components/logo/CompanyNameComponent.jsx";
 
 const FooterSection = () => {
+    /**
+     * Handles smooth scrolling to page sections
+     * @param {Event} e - Click event
+     * @param {string} href - Target section ID (with # prefix)
+     */
+    const handleSmoothScroll = (e, href) => {
+        e.preventDefault();
 
+        // Extract ID without hash
+        const targetId = href.replace('#', '');
+        const element = document.getElementById(targetId);
+
+        if (element) {
+            // Smooth scroll to element with offset for better visibility
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } else {
+            // Log warning for debugging (only in development)
+            if (process.env.NODE_ENV === 'development') {
+                console.warn(`Footer navigation: Section with ID "${targetId}" not found`);
+            }
+        }
+    };
+
+    // Active links - these sections exist on the landing page
     const quickLinks = [
-        {name: 'Startseite', href: '#hero'},
-        {name: 'Wie es funktioniert', href: '#how-it-works'},
-        {name: 'Features', href: '#features'},
-        {name: 'FAQ', href: '#faq'}
+        {name: 'Startseite', href: '#hero', active: true},
+        {name: 'Wie es funktioniert', href: '#how-it-works', active: true},
+        {name: 'Features', href: '#features', active: true},
+        {name: 'FAQ', href: '#faq', active: true}
     ];
 
     const productLinks = [
-        {name: 'ETF-Matcher', href: '#matcher'},
-        {name: 'Portfolio-Analyse', href: '#portfolio'},
-        {name: 'Marktdaten', href: '#market'},
-        {name: 'Blog', href: '#blog'}
+        {name: 'ETF-Matcher', href: '#matcher', active: true},
+        {name: 'Portfolio-Analyse', href: '#portfolio', active: false},
+        {name: 'Marktdaten', href: '#market', active: false},
+        {name: 'Blog', href: '#blog', active: false}
     ];
 
     const companyLinks = [
-        {name: 'Über uns', href: '#about'},
-        {name: 'Karriere', href: '#jobs'},
-        {name: 'Nachhaltigkeit', href: '#sustainability'},
-        {name: 'Presse', href: '#press'}
+        {name: 'Über uns', href: '#about', active: false},
+        {name: 'Karriere', href: '#jobs', active: false},
+        {name: 'Nachhaltigkeit', href: '#sustainability', active: false},
+        {name: 'Presse', href: '#press', active: false}
     ];
 
     const legalLinks = [
-        {name: 'Impressum', href: '#imprint'},
-        {name: 'Datenschutz', href: '#privacy'},
-        {name: 'AGB', href: '#terms'},
-        {name: 'Cookie-Einstellungen', href: '#cookies'}
+        {name: 'Impressum', href: '#imprint', active: false},
+        {name: 'Datenschutz', href: '#privacy', active: false},
+        {name: 'AGB', href: '#terms', active: false},
+        {name: 'Cookie-Einstellungen', href: '#cookies', active: false}
     ];
 
     return (
@@ -65,7 +91,15 @@ const FooterSection = () => {
                         <ul className="space-y-2">
                             {quickLinks.map((link, index) => (
                                 <li key={index}>
-                                    <a href={link.href} className="text-gray-400 hover:text-pastel-cyan transition-colors duration-200 text-sm">
+                                    <a
+                                        href={link.href}
+                                        onClick={(e) => link.active ? handleSmoothScroll(e, link.href) : e.preventDefault()}
+                                        className={`text-sm transition-colors duration-200 ${
+                                            link.active
+                                                ? 'text-gray-400 hover:text-pastel-cyan cursor-pointer'
+                                                : 'text-gray-600 cursor-not-allowed'
+                                        }`}
+                                        aria-disabled={!link.active}>
                                         {link.name}
                                     </a>
                                 </li>
@@ -79,7 +113,15 @@ const FooterSection = () => {
                         <ul className="space-y-2">
                             {productLinks.map((link, index) => (
                                 <li key={index}>
-                                    <a href={link.href} className="text-gray-400 hover:text-pastel-cyan transition-colors duration-200 text-sm">
+                                    <a
+                                        href={link.href}
+                                        onClick={(e) => link.active ? handleSmoothScroll(e, link.href) : e.preventDefault()}
+                                        className={`text-sm transition-colors duration-200 ${
+                                            link.active
+                                                ? 'text-gray-400 hover:text-pastel-cyan cursor-pointer'
+                                                : 'text-gray-600 cursor-not-allowed'
+                                        }`}
+                                        aria-disabled={!link.active}>
                                         {link.name}
                                     </a>
                                 </li>
@@ -93,7 +135,15 @@ const FooterSection = () => {
                         <ul className="space-y-2">
                             {companyLinks.map((link, index) => (
                                 <li key={index}>
-                                    <a href={link.href} className="text-gray-400 hover:text-pastel-cyan transition-colors duration-200 text-sm">
+                                    <a
+                                        href={link.href}
+                                        onClick={(e) => link.active ? handleSmoothScroll(e, link.href) : e.preventDefault()}
+                                        className={`text-sm transition-colors duration-200 ${
+                                            link.active
+                                                ? 'text-gray-400 hover:text-pastel-cyan cursor-pointer'
+                                                : 'text-gray-600 cursor-not-allowed'
+                                        }`}
+                                        aria-disabled={!link.active}>
                                         {link.name}
                                     </a>
                                 </li>
@@ -111,7 +161,13 @@ const FooterSection = () => {
                                 <a
                                     key={index}
                                     href={link.href}
-                                    className="text-gray-400 hover:text-pastel-cyan transition-colors duration-200">
+                                    onClick={(e) => link.active ? handleSmoothScroll(e, link.href) : e.preventDefault()}
+                                    className={`transition-colors duration-200 ${
+                                        link.active
+                                            ? 'text-gray-400 hover:text-pastel-cyan cursor-pointer'
+                                            : 'text-gray-600 cursor-not-allowed'
+                                    }`}
+                                    aria-disabled={!link.active}>
                                     {link.name}
                                 </a>
                             ))}
