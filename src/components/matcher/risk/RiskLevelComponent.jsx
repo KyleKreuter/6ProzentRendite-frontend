@@ -3,7 +3,7 @@ import * as Slider from "@radix-ui/react-slider";
 import RiskLevelPill from "@/components/matcher/risk/RiskLevelPill.jsx";
 
 const RiskLevelComponent = ({onRiskValueChange}) => {
-    const [risk, setRisk] = useState(0)
+    const [risk, setRisk] = useState(2)
 
     const getRiskLevelFromRiskValue = (riskValue) => {
         if (riskValue > 3){
