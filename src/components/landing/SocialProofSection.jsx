@@ -83,19 +83,19 @@ const SocialProofSection = () => {
                     {/* Testimonials Grid */}
                     <div className="grid md:grid-cols-3 gap-6 w-full">
                         {testimonials.map((testimonial, index) => (
-                            <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200 flex flex-col gap-4 hover:shadow-md transition-shadow duration-200">
+                            <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200 flex flex-col hover:shadow-md transition-shadow duration-200 h-full">
                                 {/* Quote Icon */}
                                 <div className="text-5xl text-pastel-blue/30 font-serif leading-none">
                                     "
                                 </div>
 
                                 {/* Testimonial Text */}
-                                <p className="text-text-secondary italic -mt-4">
+                                <p className="text-text-secondary italic -mt-4 mb-4">
                                     {testimonial.text}
                                 </p>
 
-                                {/* Author */}
-                                <div className="flex flex-col gap-1 mt-2">
+                                {/* Author - always at bottom */}
+                                <div className="flex flex-col gap-1 mt-auto">
                                     <p className="font-semibold text-gray-900">
                                         {testimonial.name}
                                     </p>
