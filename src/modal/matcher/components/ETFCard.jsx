@@ -110,12 +110,7 @@ const ETFCard = ({etf}) => {
                     <SparklesIcon className={"size-4 text-pastel-blue"}/>
                     <p className={"text-sm font-semibold"}>Match-Wert</p>
                 </div>
-                <p className={"text-pastel-blue font-semibold"}>{etf.matchToFoci}%</p>
-            </div>
-            <hr className={"border-gray-300 stroke-2 w-[95%]"}/>
-            <div className={"flex items-center justify-start gap-1 p-4 w-full"}>
-                <StarIcon className={"size-4 stroke-2 text-amber-400 hover:fill-amber-400 hover:cursor-pointer"}/>
-                <p className={"text-sm"}>Speichern</p>
+                <p className={"text-pastel-blue font-semibold"}>{etf.matchToFoci === 0 ? 100 : etf.matchToFoci}%</p>
             </div>
         </div>
     );
