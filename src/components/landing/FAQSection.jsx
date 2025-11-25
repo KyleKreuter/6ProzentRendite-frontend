@@ -18,10 +18,6 @@ const FAQSection = () => {
             answer: "Ja, unser ETF-Matcher ist vollständig kostenlos nutzbar. Es gibt keine versteckten Gebühren und keine Registrierung erforderlich. Wir verdienen durch Affiliate-Partnerschaften mit ausgewählten Brokern, wenn Nutzer über unsere Links ein Depot eröffnen."
         },
         {
-            question: "Muss ich mich registrieren?",
-            answer: "Nein, eine Registrierung ist nicht erforderlich. Du kannst den ETF-Matcher sofort nutzen, ohne ein Konto zu erstellen. Wenn du deine Ergebnisse speichern möchtest, kannst du optional ein kostenloses Konto anlegen."
-        },
-        {
             question: "Wie aktuell sind die ETF-Daten?",
             answer: "Unsere ETF-Daten werden täglich aktualisiert. Performance-Kennzahlen, TER (Gesamtkostenquote) und andere relevante Informationen werden automatisch von vertrauenswürdigen Datenquellen bezogen, um dir stets aktuelle Informationen zu bieten."
         },
