@@ -42,7 +42,7 @@ const HowItWorksSection = () => {
                         <div key={index} className="flex flex-col items-center text-center gap-4 relative">
                             {/* Connector Line (hidden on mobile, shown between cards on desktop) */}
                             {index < steps.length - 1 && (
-                                <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-gray-300 to-gray-200 z-0"/>
+                                <div className="hidden md:block absolute top-12 left-[calc(50%+3.5rem)] w-[calc(100%-4rem)] h-0.5 bg-gradient-to-r from-gray-300 to-gray-200 z-0"/>
                             )}
 
                             {/* Icon Container */}
